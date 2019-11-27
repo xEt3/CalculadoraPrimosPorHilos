@@ -13,7 +13,7 @@ public class CalculaPrimos {
 	
 	public static void main(String[] args) throws IOException, InterruptedException {
 		System.out.println("Programa iniciado");
-		final int maxProcesos = 90;
+		final int maxProcesos = 1000;
 		final int maxProcesosCPU = 10;
 		Semaphore accesoPipeCounter = new Semaphore(1);
 		Semaphore concurrencia = new Semaphore(maxProcesosCPU);
@@ -30,6 +30,8 @@ public class CalculaPrimos {
 		OrdenaDatos ordenador = new OrdenaDatos(esperaFinProceso, esperaFinOrdena, receptor);
 		ordenador.start();
 		esperaFinOrdena.await();
+		emisor.close();
+		receptor.close();
 	}
 
 }

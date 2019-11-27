@@ -25,10 +25,10 @@ public class OrdenaDatos extends Thread{
 	@Override
 	public void run() {
 		try {
-			System.out.println("esperando a que terminen los procesos");
+			System.out.println("Esperando a que terminen los procesadores...");
 			esperaFinProceso.await();
-			System.out.println("procesos terminados");
-			System.out.println("Numero de primos encontrados "+CalculaPrimos.datosPipe);
+			System.out.println("Los procesadores han terminados");
+			System.out.println("- Numero de primos encontrados "+CalculaPrimos.datosPipe+" -");
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -49,7 +49,7 @@ public class OrdenaDatos extends Thread{
 	
 	private void mostrarPrimos() {
 		for (int i = 0; i < valores.length; i++) {
-			System.out.println("Primo "+(i+1)+"-ésimo > "+valores[i]);
+			System.out.println("\tPrimo "+(i+1)+"-ésimo > "+valores[i]);
 		}
 	}
 	
